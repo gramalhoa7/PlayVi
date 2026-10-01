@@ -1,0 +1,6 @@
+@PlayViAPI_HostAddress = http://localhost:5026
+
+GET {{PlayViAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

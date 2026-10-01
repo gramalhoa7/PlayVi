@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlayViAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96e46cd39a4564db4e6e5989aa0cd6cca4809797")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlayViAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlayViAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

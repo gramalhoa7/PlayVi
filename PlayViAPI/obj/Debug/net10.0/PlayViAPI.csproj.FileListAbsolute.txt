@@ -9,8 +9,11 @@ C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\PlayViAPI.pdb
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Azure.Core.dll
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Azure.Identity.dll
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Humanizer.dll
+C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Microsoft.Build.Framework.dll
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -148,6 +151,7 @@ C:\Users\T.T\Projects\PlayVi\PlayViAPI\obj\Debug\net10.0\PlayViAPI.AssemblyInfo.
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\obj\Debug\net10.0\PlayViAPI.csproj.CoreCompileInputs.cache
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\obj\Debug\net10.0\PlayViAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\obj\Debug\net10.0\PlayViAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\T.T\Projects\PlayVi\PlayViAPI\obj\Debug\net10.0\PlayViAPI.sourcelink.json
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
@@ -163,6 +167,3 @@ C:\Users\T.T\Projects\PlayVi\PlayViAPI\obj\Debug\net10.0\refint\PlayViAPI.dll
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\obj\Debug\net10.0\PlayViAPI.pdb
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\obj\Debug\net10.0\PlayViAPI.genruntimeconfig.cache
 C:\Users\T.T\Projects\PlayVi\PlayViAPI\obj\Debug\net10.0\ref\PlayViAPI.dll
-C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\T.T\Projects\PlayVi\PlayViAPI\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
