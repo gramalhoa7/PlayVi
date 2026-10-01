@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlayViApp.ProfilesPage"
+             BackgroundColor="#141414">
+
+    <VerticalStackLayout Padding="30" Spacing="24" VerticalOptions="Center">
+
+        <Label Text="Quem está assistindo?" FontSize="32" FontAttributes="Bold"
+               TextColor="White" HorizontalOptions="Center" />
+
+        <CollectionView x:Name="ProfilesView"
+                        SelectionMode="Single"
+                        SelectionChanged="OnProfileSelected"
+                        HeightRequest="190"
+                        HorizontalOptions="Center">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout WidthRequest="110" Spacing="8">
+                        <Border BackgroundColor="#7C4DFF" WidthRequest="110" HeightRequest="110"
+                                StrokeThickness="0" StrokeShape="RoundRectangle 12">
+                            <Label Text="{Binding Initial}" FontSize="48" FontAttributes="Bold"
+                                   TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                        <Label Text="{Binding Name}" TextColor="White" FontSize="16"
+                               HorizontalOptions="Center" />
+                        <Label Text="Infantil" TextColor="Gray" FontSize="12"
+                               HorizontalOptions="Center" IsVisible="{Binding IsKids}" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="+ Adicionar perfil" Clicked="OnAddProfileClicked"
+                BackgroundColor="Transparent" BorderColor="Gray" BorderWidth="1"
+                TextColor="White" WidthRequest="220" HorizontalOptions="Center" />
+
+    </VerticalStackLayout>
+</ContentPage>
