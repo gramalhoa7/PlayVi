@@ -70,11 +70,4 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 	</ItemGroup>
 
-	<ItemGroup>
-    	<Compile Remove="PlayViAPI\**" />
-    	<MauiXaml Remove="PlayViAPI\**" />
-    	<EmbeddedResource Remove="PlayViAPI\**" />
-    	<None Remove="PlayViAPI\**" />
-</ItemGroup>
-
 </Project>

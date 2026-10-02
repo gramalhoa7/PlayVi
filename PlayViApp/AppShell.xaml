@@ -8,5 +8,6 @@
 
     <ShellContent Route="login" ContentTemplate="{DataTemplate local:MainPage}" />
     <ShellContent Route="profiles" ContentTemplate="{DataTemplate local:ProfilesPage}" />
+    <ShellContent Route="home" ContentTemplate="{DataTemplate local:HomePage}" />
 
 </Shell>

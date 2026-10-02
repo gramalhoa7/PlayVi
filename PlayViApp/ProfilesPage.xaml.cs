@@ -31,7 +31,7 @@ public partial class ProfilesPage : ContentPage
         ProfilesView.SelectedItem = null;
 
         // Próximo passo: ir para a tela de filmes.
-        await DisplayAlert("Selected profile", $"Hi, {profile.Name}!", "OK");
+        await Shell.Current.GoToAsync("//home");
     }
 
     private async void OnAddProfileClicked(object? sender, EventArgs e)
