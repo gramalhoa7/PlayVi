@@ -14,20 +14,15 @@ public partial class MainPage : ContentPage
 
     private async void OnLoginClicked(object? sender, EventArgs e)
     {
-        StatusLabel.Text = "Entrando...";
+        StatusLabel.Text = "Logging in...";
         var (ok, message) = await _api.LoginAsync(EmailEntry.Text ?? "", PasswordEntry.Text ?? "");
 
         if (ok) await Shell.Current.GoToAsync("//profiles");
         else StatusLabel.Text = message;
     }
 
-    private async void OnRegisterClicked(object? sender, EventArgs e)
+    private async void OnCreateAccountClicked(object? sender, EventArgs e)
     {
-        StatusLabel.Text = "Criando conta...";
-        var (ok, message) = await _api.RegisterAsync(
-            EmailEntry.Text ?? "", PasswordEntry.Text ?? "", NameEntry.Text ?? "");
-
-        if (ok) await Shell.Current.GoToAsync("//profiles");
-        else StatusLabel.Text = message;
+        await Shell.Current.GoToAsync("//register");
     }
 }

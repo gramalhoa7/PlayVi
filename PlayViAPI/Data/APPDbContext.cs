@@ -38,9 +38,9 @@ public class APPDbContext : IdentityDbContext<ApplicationUser>
 
         // Títulos de exemplo para testar (troque depois pelos seus)
         b.Entity<Title>().HasData(
-            new Title { Id = 1, Name = "Comédia de Teste (antiga)", Type = "Movie", ReleaseYear = 1985, Description = "Título de teste.", VideoUrl = "https://exemplo.com/video1.mp4" },
-            new Title { Id = 2, Name = "Comédia de Teste (nova)", Type = "Movie", ReleaseYear = 2023, Description = "Título de teste.", VideoUrl = "https://exemplo.com/video2.mp4" },
-            new Title { Id = 3, Name = "Drama de Teste", Type = "Series", ReleaseYear = 2021, Description = "Título de teste.", VideoUrl = "https://exemplo.com/video3.mp4" }
+            new Title { Id = 1, Name = "Comédia de Teste (antiga)", Type = "Movie", ReleaseYear = 1985, Description = "Título de teste.", VideoUrl = "https://www.w3schools.com/html/mov_bbb.mp4" },
+            new Title { Id = 2, Name = "Vida Maria", Type = "Movie", ReleaseYear = 2017, Description = "Título de teste.", VideoUrl = "https://www.w3schools.com/html/mov_bbb.mp4" },
+            new Title { Id = 3, Name = "UNO Vs Lamborghini", Type = "Series", ReleaseYear = 2021, Description = "Título de teste.", VideoUrl = "https://www.w3schools.com/html/mov_bbb.mp4" }
         );
         
         b.Entity<TitleGenre>().HasData(

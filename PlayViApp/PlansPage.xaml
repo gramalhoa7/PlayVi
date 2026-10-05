@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlayViApp.PlansPage"
+             BackgroundColor="#141414">
+
+    <VerticalStackLayout Padding="30" Spacing="20" MaximumWidthRequest="480" VerticalOptions="Center">
+
+        <Label Text="Escolha seu plano" FontSize="32" FontAttributes="Bold"
+               TextColor="White" HorizontalOptions="Center" />
+        <Label Text="You can cancel anytime." FontSize="16"
+               TextColor="Gray" HorizontalOptions="Center" />
+
+        <CollectionView x:Name="PlansView" SelectionMode="Single"
+                        SelectionChanged="OnPlanSelected" HeightRequest="330">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="#1F1F1F" Stroke="#7C4DFF" StrokeThickness="1"
+                            StrokeShape="RoundRectangle 12" Padding="18" Margin="0,0,0,12">
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="{Binding Name}" TextColor="White" FontSize="20" FontAttributes="Bold" />
+                            <Label Text="{Binding PriceText}" TextColor="#7C4DFF" FontSize="24" FontAttributes="Bold" />
+                            <Label Text="{Binding PeriodText}" TextColor="Gray" FontSize="13" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label x:Name="StatusLabel" TextColor="Orange" HorizontalTextAlignment="Center" />
+    </VerticalStackLayout>
+</ContentPage>

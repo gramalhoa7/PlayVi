@@ -17,7 +17,7 @@ public partial class HomePage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        WelcomeLabel.Text = $"Olá, {_api.CurrentProfile?.Name}";
+        WelcomeLabel.Text = $"Hi, {_api.CurrentProfile?.Name}";
 
         if (!_ready) await InitFiltersAsync();
         await SearchAsync();
@@ -26,9 +26,9 @@ public partial class HomePage : ContentPage
     private async Task InitFiltersAsync()
     {
         var genres = await _api.GetGenresAsync();
-        GenrePicker.ItemsSource = new[] { "Todos os gêneros" }.Concat(genres).ToList();
-        EraPicker.ItemsSource = new[] { "Todas as épocas", "Antigos (antes de 2000)", "Novos (2020 em diante)" };
-        TypePicker.ItemsSource = new[] { "Filmes e séries", "Só filmes", "Só séries" };
+        GenrePicker.ItemsSource = new[] { "All Genres" }.Concat(genres).ToList();
+        EraPicker.ItemsSource = new[] { "All Time", "Older (before 2000)", "Newer (2020 and beyond)" };
+        TypePicker.ItemsSource = new[] { "Movies and Series", "Movies Only", "Series Only" };
 
         GenrePicker.SelectedIndex = 0;
         EraPicker.SelectedIndex = 0;
@@ -40,7 +40,7 @@ public partial class HomePage : ContentPage
     private async Task SearchAsync()
     {
         var genre = GenrePicker.SelectedIndex > 0 ? GenrePicker.SelectedItem as string : null;
-        var era = EraPicker.SelectedIndex switch { 1 => "antigos", 2 => "novos", _ => null };
+        var era = EraPicker.SelectedIndex switch { 1 => "Older", 2 => "Newer", _ => null };
         var type = TypePicker.SelectedIndex switch { 1 => "Movie", 2 => "Series", _ => null };
 
         TitlesView.ItemsSource = await _api.GetTitlesAsync(SearchBox.Text, genre, era, type);
@@ -71,10 +71,10 @@ public partial class HomePage : ContentPage
             result = await _api.WatchAsync(title.Id);
         }
 
-        if (result.Ok)
-            await DisplayAlert(title.Name, "Reprodução liberada! No próximo passo, o player abre aqui.", "OK");
+        if (result.Ok && !string.IsNullOrWhiteSpace(result.Url))
+            await Navigation.PushModalAsync(new PlayerPage(title.Name, result.Url));
         else
-            await DisplayAlert("Aviso", result.Message ?? "Não foi possível abrir este título.", "OK");
+            await DisplayAlert("Warning", result.Message ?? "This title is not available for viewing.", "OK");
     }
 
     private async Task<bool> OfferPlanAsync()
@@ -82,7 +82,7 @@ public partial class HomePage : ContentPage
         var plans = await _api.GetPlansAsync();
         if (plans.Count == 0)
         {
-            await DisplayAlert("Planos", "Não foi possível carregar os planos.", "OK");
+            await DisplayAlert("Plans", "Dont was possible to load plans.", "OK");
             return false;
         }
 
@@ -91,7 +91,7 @@ public partial class HomePage : ContentPage
             .Select(p => $"{p.Name} — {p.Price.ToString("C", br)} ({(p.BillingPeriod == "Yearly" ? "anual" : "mensal")})")
             .ToArray();
 
-        var choice = await DisplayActionSheet("Escolha um plano para assistir", "Cancelar", null, labels);
+        var choice = await DisplayActionSheet("Choose a plan to watch", "Cancel", null, labels);
         var index = Array.IndexOf(labels, choice);
         if (index < 0) return false;
 
@@ -102,7 +102,7 @@ public partial class HomePage : ContentPage
             return false;
         }
 
-        await DisplayAlert("Assinatura ativa", "Pagamento simulado aprovado!", "OK");
+        await DisplayAlert("Active assignment", "Simulated payment approved!", "OK");
         return true;
     }
 

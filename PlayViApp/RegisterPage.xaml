@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PlayViApp.MainPage"
+             x:Class="PlayViApp.RegisterPage"
              BackgroundColor="#141414">
 
     <VerticalStackLayout Padding="30" Spacing="14"
@@ -10,13 +10,15 @@
         <Label Text="PlayVi" FontSize="40" FontAttributes="Bold"
                TextColor="#7C4DFF" HorizontalOptions="Center" />
 
+        <Entry x:Name="NameEntry" Placeholder="Your name"
+               TextColor="White" PlaceholderColor="Gray" />
         <Entry x:Name="EmailEntry" Placeholder="E-mail" Keyboard="Email"
                TextColor="White" PlaceholderColor="Gray" />
         <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True"
                TextColor="White" PlaceholderColor="Gray" />
 
-        <Button Text="Login" Clicked="OnLoginClicked" BackgroundColor="#7C4DFF" TextColor="White" />
-        <Button Text="Create Account" Clicked="OnCreateAccountClicked"
+        <Button Text="Register" Clicked="OnRegisterClicked" BackgroundColor="#7C4DFF" TextColor="White" />
+        <Button Text="Back" Clicked="OnBackClicked"
                 BackgroundColor="Transparent" BorderColor="Gray" BorderWidth="1" TextColor="White" />
 
         <Label x:Name="StatusLabel" TextColor="Orange" HorizontalTextAlignment="Center" />
