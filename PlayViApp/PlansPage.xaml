@@ -6,7 +6,7 @@
 
     <VerticalStackLayout Padding="30" Spacing="20" MaximumWidthRequest="480" VerticalOptions="Center">
 
-        <Label Text="Escolha seu plano" FontSize="32" FontAttributes="Bold"
+        <Label Text="Select a Plan" FontSize="32" FontAttributes="Bold"
                TextColor="White" HorizontalOptions="Center" />
         <Label Text="You can cancel anytime." FontSize="16"
                TextColor="Gray" HorizontalOptions="Center" />

@@ -6,7 +6,7 @@ using PlayViAPI.Models;
 
 namespace PlayViAPI.Controllers;
 
-public record ProfileRequest(string Name, string? AvatarUrl, bool IsKids);
+public record ProfileRequest(string Name, string? AvatarId, bool IsKids);
 
 [Authorize]
 [ApiController]
@@ -14,11 +14,15 @@ public record ProfileRequest(string Name, string? AvatarUrl, bool IsKids);
 public class ProfilesController : ControllerBase
 {
     private const int MaxProfiles = 5;
+
     private readonly APPDbContext _db;
 
     public ProfilesController(APPDbContext db) => _db = db;
 
     private string? UserId => User.FindFirst("sub")?.Value;
+
+    private static bool AvatarIsValid(string? avatarId) =>
+    avatarId is null || System.Text.RegularExpressions.Regex.IsMatch(avatarId, "^[a-z0-9_]{1,40}$");
 
     [HttpGet]
     public async Task<IActionResult> List()
@@ -26,7 +30,7 @@ public class ProfilesController : ControllerBase
         var profiles = await _db.Profiles
             .Where(p => p.UserId == UserId)
             .OrderBy(p => p.CreatedAt)
-            .Select(p => new { p.Id, p.Name, p.AvatarUrl, p.IsKids })
+            .Select(p => new { p.Id, p.Name, p.AvatarId, p.IsKids })
             .ToListAsync();
 
         return Ok(profiles);
@@ -40,6 +44,9 @@ public class ProfilesController : ControllerBase
         var name = req.Name?.Trim();
         if (string.IsNullOrEmpty(name) || name.Length > 20)
             return BadRequest(new { message = "The name must be between 1 and 20 characters long." });
+        
+        if (!AvatarIsValid(req.AvatarId))
+            return BadRequest(new { message = "Invalid avatar." });
 
         var count = await _db.Profiles.CountAsync(p => p.UserId == UserId);
         if (count >= MaxProfiles)
@@ -49,14 +56,14 @@ public class ProfilesController : ControllerBase
         {
             UserId = UserId,
             Name = name,
-            AvatarUrl = req.AvatarUrl,
+            AvatarId = req.AvatarId,
             IsKids = req.IsKids
         };
 
         _db.Profiles.Add(profile);
         await _db.SaveChangesAsync();
 
-        return Ok(new { profile.Id, profile.Name, profile.AvatarUrl, profile.IsKids });
+        return Ok(new { profile.Id, profile.Name, profile.AvatarId, profile.IsKids });
     }
 
     [HttpPut("{id}")]
@@ -70,11 +77,11 @@ public class ProfilesController : ControllerBase
             return BadRequest(new { message = "The name must be between 1 and 20 characters long." });
 
         profile.Name = name;
-        profile.AvatarUrl = req.AvatarUrl;
+        profile.AvatarId = req.AvatarId;
         profile.IsKids = req.IsKids;
         await _db.SaveChangesAsync();
 
-        return Ok(new { profile.Id, profile.Name, profile.AvatarUrl, profile.IsKids });
+        return Ok(new { profile.Id, profile.Name, profile.AvatarId, profile.IsKids });
     }
 
     [HttpDelete("{id}")]

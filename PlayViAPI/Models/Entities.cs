@@ -40,7 +40,7 @@ public class Profile
     public int Id { get; set; }
     public string UserId { get; set; } = "";
     public string Name { get; set; } = "";
-    public string? AvatarUrl { get; set; }
+    public string? AvatarId { get; set; }
     public bool IsKids { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 }

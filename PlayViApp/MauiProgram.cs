@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using Microsoft.Maui.Controls.Embedding;
 using PlayViApp.Services;
 
 namespace PlayViApp;
@@ -21,8 +20,11 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<APIService>();
         builder.Services.AddTransient<MainPage>();
+        builder.Services.AddTransient<RegisterPage>();
         builder.Services.AddTransient<ProfilesPage>();
-		builder.Services.AddTransient<HomePage>();
+        builder.Services.AddTransient<NewProfilePage>();
+        builder.Services.AddTransient<HomePage>();
+        builder.Services.AddTransient<PlayerPage>();
 
 #if DEBUG
         builder.Logging.AddDebug();

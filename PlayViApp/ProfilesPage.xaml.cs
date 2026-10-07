@@ -36,14 +36,6 @@ public partial class ProfilesPage : ContentPage
 
     private async void OnAddProfileClicked(object? sender, EventArgs e)
     {
-        var name = await DisplayPromptAsync("New profile", "Profile name:", "Create", "Cancel", maxLength: 20);
-        if (string.IsNullOrWhiteSpace(name)) return;
-
-        var isKids = await DisplayAlert("Kids profile?", "Is this a kids profile?", "Yes", "No");
-
-        var (ok, message) = await _api.CreateProfileAsync(name, isKids);
-        if (!ok) await DisplayAlert("Error", message, "OK");
-
-        await LoadAsync();
+        await Shell.Current.GoToAsync("//new-profile");
     }
 }

@@ -9,21 +9,21 @@
         <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
             <Label x:Name="WelcomeLabel" TextColor="White" FontSize="22"
                    FontAttributes="Bold" VerticalOptions="Center" />
-            <Button Grid.Column="1" Text="Trocar perfil" Clicked="OnSwitchProfileClicked"
+            <Button Grid.Column="1" Text="Switch Profile" Clicked="OnSwitchProfileClicked"
                     BackgroundColor="Transparent" BorderColor="Gray" BorderWidth="1" TextColor="White" />
         </Grid>
 
         <VerticalStackLayout Grid.Row="1" Spacing="8">
-            <SearchBar x:Name="SearchBox" Placeholder="Buscar filmes e séries"
+            <SearchBar x:Name="SearchBox" Placeholder="Search titles..."
                        SearchButtonPressed="OnSearchPressed" TextChanged="OnSearchTextChanged"
                        TextColor="White" PlaceholderColor="Gray" />
 
             <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
-                <Picker x:Name="GenrePicker" Grid.Column="0" Title="Gênero"
+                <Picker x:Name="GenrePicker" Grid.Column="0" Title="Genre"
                         TextColor="White" TitleColor="Gray" SelectedIndexChanged="OnFilterChanged" />
-                <Picker x:Name="EraPicker" Grid.Column="1" Title="Época"
+                <Picker x:Name="EraPicker" Grid.Column="1" Title="Era"
                         TextColor="White" TitleColor="Gray" SelectedIndexChanged="OnFilterChanged" />
-                <Picker x:Name="TypePicker" Grid.Column="2" Title="Tipo"
+                <Picker x:Name="TypePicker" Grid.Column="2" Title="Type"
                         TextColor="White" TitleColor="Gray" SelectedIndexChanged="OnFilterChanged" />
             </Grid>
         </VerticalStackLayout>
@@ -31,7 +31,7 @@
         <CollectionView x:Name="TitlesView" Grid.Row="2"
                         SelectionMode="Single" SelectionChanged="OnTitleSelected">
             <CollectionView.EmptyView>
-                <Label Text="Nenhum título encontrado." TextColor="Gray"
+                <Label Text="No titles found." TextColor="Gray"
                        HorizontalOptions="Center" Margin="0,40,0,0" />
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>

@@ -4,9 +4,10 @@ using System.Net.Http.Json;
 
 namespace PlayViApp.Services;
 
-public record ProfileDto(int Id, string Name, string? AvatarUrl, bool IsKids)
+public record ProfileDto(int Id, string Name, string? AvatarId, bool IsKids)
 {
     public string Initial => Name.Length > 0 ? Name[..1].ToUpper() : "?";
+    public string AvatarImage => string.IsNullOrWhiteSpace(AvatarId) ? "dotnet_bot.png" : $"{AvatarId}.png";
 }
 
 public record TitleDto(int Id, string Name, string Type, int ReleaseYear,
@@ -49,11 +50,11 @@ public class APIService
         catch { return new(); }
     }
 
-    public async Task<(bool ok, string message)> CreateProfileAsync(string name, bool isKids)
+    public async Task<(bool ok, string message)> CreateProfileAsync(string name, string? avatarId, bool isKids)
     {
         try
         {
-            var response = await _http.PostAsJsonAsync("api/profiles", new { name, avatarUrl = (string?)null, isKids });
+            var response = await _http.PostAsJsonAsync("api/profiles", new { name, avatarId, isKids });
             if (response.IsSuccessStatusCode) return (true, "OK");
             return (false, await ReadErrorAsync(response));
         }
@@ -137,11 +138,11 @@ public class APIService
 
     // ---------- Internos ----------
 
-    private async Task<(bool ok, string message)> SendAuthAsync(string url, object body)
+    private async Task<(bool ok, string message)> SendAuthAsync(string id, object body)
     {
         try
         {
-            var response = await _http.PostAsJsonAsync(url, body);
+            var response = await _http.PostAsJsonAsync(id, body);
 
             if (response.IsSuccessStatusCode)
             {

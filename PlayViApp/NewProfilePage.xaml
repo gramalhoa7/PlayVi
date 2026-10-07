@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlayViApp.NewProfilePage"
+             BackgroundColor="#141414">
+
+    <Grid RowDefinitions="Auto,*" ColumnDefinitions="*,*" Padding="30">
+
+        <!-- Voltar (canto superior esquerdo) -->
+        <Button Grid.Row="0" Grid.Column="0" Text="←  Back" Clicked="OnBackClicked"
+                HorizontalOptions="Start"
+                BackgroundColor="Transparent" TextColor="White" />
+
+        <!-- LADO ESQUERDO: avatares, 2 fileiras de 5 -->
+        <CollectionView x:Name="AvatarsView" Grid.Row="1" Grid.Column="0"
+                        SelectionMode="Single" SelectionChanged="OnAvatarSelected"
+                        WidthRequest="470" HeightRequest="190"
+                        HorizontalOptions="Center" VerticalOptions="Center">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="5"
+                                 HorizontalItemSpacing="10" VerticalItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border WidthRequest="84" HeightRequest="84" Padding="0"
+                            StrokeShape="RoundRectangle 12" StrokeThickness="3" Stroke="Transparent">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="Stroke" Value="Transparent" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="Stroke" Value="#7C4DFF" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </VisualStateManager.VisualStateGroups>
+                        <Image Source="{Binding Image}" Aspect="AspectFill" />
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- LADO DIREITO: título, avatar escolhido, nome, perfil infantil e botão -->
+        <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="16"
+                             MaximumWidthRequest="380" HorizontalOptions="Center"
+                             VerticalOptions="Center">
+
+            <Label Text="New profile" FontSize="28" FontAttributes="Bold"
+                   TextColor="White" HorizontalOptions="Center" />
+
+            <Border BackgroundColor="#7C4DFF" WidthRequest="140" HeightRequest="140"
+                    StrokeThickness="0" StrokeShape="RoundRectangle 14" HorizontalOptions="Center">
+                <Image x:Name="PreviewImage" Source="dotnet_bot.png" Aspect="AspectFill" />
+            </Border>
+
+            <Entry x:Name="NameEntry" Placeholder="Name" MaxLength="20"
+                   TextColor="White" PlaceholderColor="Gray" />
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Label Text="Kids profile" TextColor="White" VerticalOptions="Center" />
+                <Switch x:Name="KidsSwitch" />
+            </HorizontalStackLayout>
+
+            <Button Text="Create" Clicked="OnCreateProfileClicked"
+                    BackgroundColor="#7C4DFF" TextColor="White" />
+
+            <Label x:Name="StatusLabel" TextColor="Orange" HorizontalTextAlignment="Center" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

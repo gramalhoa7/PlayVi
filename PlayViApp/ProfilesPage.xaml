@@ -6,7 +6,7 @@
 
     <VerticalStackLayout Padding="30" Spacing="24" VerticalOptions="Center">
 
-        <Label Text="Quem está assistindo?" FontSize="32" FontAttributes="Bold"
+        <Label Text="Who's watching?" FontSize="32" FontAttributes="Bold"
                TextColor="White" HorizontalOptions="Center" />
 
         <CollectionView x:Name="ProfilesView"
@@ -22,8 +22,7 @@
                     <VerticalStackLayout WidthRequest="110" Spacing="8">
                         <Border BackgroundColor="#7C4DFF" WidthRequest="110" HeightRequest="110"
                                 StrokeThickness="0" StrokeShape="RoundRectangle 12">
-                            <Label Text="{Binding Initial}" FontSize="48" FontAttributes="Bold"
-                                   TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Image Source="{Binding AvatarImage}" Aspect="AspectFill" />
                         </Border>
                         <Label Text="{Binding Name}" TextColor="White" FontSize="16"
                                HorizontalOptions="Center" />

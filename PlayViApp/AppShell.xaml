@@ -9,6 +9,7 @@
     <ShellContent Route="login" ContentTemplate="{DataTemplate local:MainPage}" />
     <ShellContent Route="register" ContentTemplate="{DataTemplate local:RegisterPage}" />
     <ShellContent Route="profiles" ContentTemplate="{DataTemplate local:ProfilesPage}" />
+    <ShellContent Route="new-profile" ContentTemplate="{DataTemplate local:NewProfilePage}" />
     <ShellContent Route="plans" ContentTemplate="{DataTemplate local:PlansPage}" />
     <ShellContent Route="home" ContentTemplate="{DataTemplate local:HomePage}" />
 
